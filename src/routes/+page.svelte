@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+    import Button from "../lib/components/Button.svelte";
+import Cards from "../lib/components/Cards.svelte";
+import Title from "../lib/components/Title.svelte";
+</script>
+
+
+<Title />
+<Cards />
+<Button />
