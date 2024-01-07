@@ -119,7 +119,7 @@ onMount(() => {
   #cardContainer {
     width: 100%;
     height: 100%;
-    /* pointer-events: none; Remove this line */
+    pointer-events: auto;
   }
 
   .card {
@@ -140,16 +140,6 @@ onMount(() => {
   a{
     all: unset;
   }
-
-  /* h1{
-    position: absolute;
-    top: 3rem;
-    left: 6rem;
-    font-size: 5rem;
-    font-weight: bold;
-    font-family: 'Bebas Neue', sans-serif;
-    z-index: 1001;
-} */
   
 
   .card h2{
