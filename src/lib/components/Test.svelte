@@ -71,6 +71,7 @@ onMount(() => {
     left: 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 	background-size: 3rem 3rem;
+    background-color: #fcfbf6;
 }
 
 .container:active {
