@@ -5,9 +5,9 @@
     <style>
 
     #title {
-    position: absolute;
+    position: fixed;
     top: 3rem;
-    left: 6rem;
+    left: 2rem;
     font-size: 5rem;
     font-weight: bold;
     font-family: 'Bebas Neue', sans-serif;

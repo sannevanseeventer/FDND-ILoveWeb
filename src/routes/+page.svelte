@@ -1,13 +1,12 @@
 <script>
-// import Button from "../lib/components/Button.svelte";
 import Cards from "../lib/components/Cards.svelte";
-    import Test from "../lib/components/Test.svelte";
-// import Title from "../lib/components/Title.svelte";
+import Button from "../lib/components/Button.svelte";
+import Title from "../lib/components/Title.svelte";
+
+export let data;
 
 </script>
 
-
-<!-- <Title /> -->
-<!-- <Cards /> -->
-<Test />
-<!-- <Button /> -->
+<Cards {data}/>
+<Title />
+<Button />

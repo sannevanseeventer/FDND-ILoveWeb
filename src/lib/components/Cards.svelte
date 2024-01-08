@@ -1,170 +1,145 @@
 <script>
- import { onMount } from 'svelte';
+    export let data;
+import { onMount } from "svelte";
 
 onMount(() => {
-  let isDragging = false;
-    let startX, startY, initialTranslateX = 0, initialTranslateY = 0;
+    const container = document.querySelector(".container");
+    const button = document.querySelector("button");
+    const section = document.querySelector("section");
 
-    // Get the container for draggable content
-    const draggableContainer = document.getElementById('draggableContainer');
+    let isDragging = false;
+    let startX, startY, initialLeft, initialTop;
 
-    function handleStart(event) {
-      // Prevent default behavior to avoid scrolling
-      event.preventDefault();
+    container.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        initialLeft = container.offsetLeft;
+        initialTop = container.offsetTop;
 
-      isDragging = true;
-      startX = event.touches ? event.touches[0].pageX : event.pageX;
-      startY = event.touches ? event.touches[0].pageY : event.pageY;
-      document.body.style.cursor = 'grabbing';
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseup", handleMouseUp);
+    });
+
+    function handleMouseMove(e) {
+        if (isDragging) {
+            e.preventDefault();
+            const x = e.clientX;
+            const y = e.clientY;
+            const moveX = x - startX;
+            const moveY = y - startY;
+
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+            const sectionWidth = section.offsetWidth;
+            const sectionHeight = section.offsetHeight;
+
+            let newLeft = initialLeft + moveX;
+            let newTop = initialTop + moveY;
+
+            // Restrict movement within section boundaries
+            if (newLeft > 0) {
+                newLeft = 0;
+            } else if (newLeft < sectionWidth - containerWidth) {
+                newLeft = sectionWidth - containerWidth;
+            }
+
+            if (newTop > 0) {
+                newTop = 0;
+            } else if (newTop < sectionHeight - containerHeight) {
+                newTop = sectionHeight - containerHeight;
+            }
+
+            container.style.left = newLeft + "px";
+            container.style.top = newTop + "px";
+        }
     }
 
-    function handleMove(event) {
-      if (!isDragging) return;
-      // Prevent default behavior to avoid scrolling
-      event.preventDefault();
+    function handleMouseUp() {
+        isDragging = false;
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
 
-      const currentX = event.touches ? event.touches[0].pageX : event.pageX;
-      const currentY = event.touches ? event.touches[0].pageY : event.pageY;
-
-      const deltaX = currentX - startX;
-      const deltaY = currentY - startY;
-
-      startX = currentX;
-      startY = currentY;
-
-      initialTranslateX += deltaX;
-      initialTranslateY += deltaY;
-
-      draggableContainer.style.transform = `translate(${initialTranslateX}px, ${initialTranslateY}px)`;
+        // After dragging, set button position to fixed
+        const rect = button.getBoundingClientRect();
+        button.style.position = "fixed";
+        button.style.left = rect.left + "px";
+        button.style.top = rect.top + window.scrollY + "px";
     }
-
-    function handleEnd() {
-      isDragging = false;
-      document.body.style.cursor = 'grab';
-    }
-
-    document.body.addEventListener('mousedown', handleStart);
-    document.addEventListener('mousemove', handleMove);
-    document.addEventListener('mouseup', handleEnd);
-
-    // Touch events for mobile and larger screens
-    document.body.addEventListener('touchstart', handleStart);
-    document.addEventListener('touchmove', handleMove);
-    document.addEventListener('touchend', handleEnd);
-
 });
-  </script>
+</script>
 
-<!-- Non-draggable content container -->
-<div id="nonDraggableContent">
-<h1>Blog</h1>
-<button>Menu</button>
-</div>
-<!-- Draggable content container -->
-<div id="draggableContainer">
-  <div id="cardContainer">
-    <a href="/BlogPost">
-      <div class="card" id="card1">
-        <img src="yolijn.png" alt="illustratie van Yolijn">
-        <h2>Yolijn Kolk</h2>
-      </div>
-    </a>
+<section>
+    <div class="container">
 
-    <div class="card" id="card2">
-      <img src="ischa.png" alt="illustratie van Ischa">
-      <h2>Ischa Gast</h2>
+        <!-- Speakers We love Web -->
+        {#each data.blogPosts as post}
+            <a href="/{post.slug}">
+                <div class="card" style="top: {post.top}rem; left: {post.left}rem">
+                    <div class="card-container">
+                        <img src="{post.image.url}" alt="illustratie van Yolijn" />
+                        <h2>{post.title}</h2>
+                    </div>
+                </div>
+            </a>
+        {/each}
+
     </div>
+</section>
 
-    <div class="card" id="card3">
-      <img src="yolijn.png" alt="illustratie van Yolijn">
-      <h2>Yolijn van der Kolk</h2>
-    </div>
-  </div>
-</div>
 
 <style>
-  #nonDraggableContent {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2; /* Above the draggable content */
-  }
+    section {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
 
-  h1 {
-    position: absolute;
-    top: 3rem;
-    left: 6rem;
-    font-size: 5rem;
-    font-weight: bold;
-    font-family: 'Bebas Neue', sans-serif;
-    z-index: 1001;
-  }
+    .container {
+        position: absolute;
+        width: 300%;
+        height: 300%;
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px,transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+        background-size: 2rem 2rem;
+        background-color: #fcfbf6;
+        z-index: 1;
+    }
 
-  button {
-    position: absolute;
-    top: 3rem;
-    left: 16rem;
-    font-size: 1.5rem;
-    z-index: 1001;
-  }
+    .container:active {
+        cursor: grabbing; /* Verandert de cursor naar grabbing tijdens het slepen */
+    }
+    .card {
+        width: 11.9rem;
+        height: 13.9rem;
+        background-color: #fcfbf6;
+        position: absolute;
+        cursor: pointer;
+    }
 
-  #draggableContainer {
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Prevent content from disappearing outside the viewport */
-    touch-action: none; /* Disable default touch actions, including scrolling */
-  }
+    .card-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
 
-  #cardContainer {
-    width: 100%;
-    height: 100%;
-    pointer-events: auto;
-  }
+    h2 {
+        font-family: "Fira Code", sans-serif;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
 
-  .card {
-    width: 45vw;
-    /* Set the width of the cards */
-    height: auto;
-    /* Set the height of the cards */
-    position: fixed; /* Fix the cards within the viewport */
-    background-color: #fcfbf6;
-    border: 1px solid #000000;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
+    img {
+        width: 7rem;
+        height: auto;
+    }
 
-  a{
+    a{
     all: unset;
   }
   
-
-  .card h2{
-  font-family: 'Fira Code', sans-serif;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  }
-
-  .card img{
-    width: 7rem;
-    height: auto;
-  }
-
-	#card1 {
-		top: 30vh;
-		left: 10vw;
-	}
-
-	#card2 {
-		top: 60vh;
-		left: 80vw;
-	}
-
-	#card3 {
-		top: 120vh;
-		left: 100vw;
-	}
 </style>
