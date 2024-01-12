@@ -4,7 +4,6 @@ import { onMount } from "svelte";
 
 onMount(() => {
     const container = document.querySelector(".container");
-    const button = document.querySelector("button");
     const section = document.querySelector("section");
 
     let isDragging = false;
@@ -60,6 +59,11 @@ onMount(() => {
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
     }
+
+    window.onload = function() {
+    // Verplaats het venster naar een standaardpositie
+    window.moveTo(0, 0);
+};
 });
 </script>
 
