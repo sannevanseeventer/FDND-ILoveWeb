@@ -59,12 +59,6 @@ onMount(() => {
         isDragging = false;
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
-
-        // After dragging, set button position to fixed
-        const rect = button.getBoundingClientRect();
-        button.style.position = "fixed";
-        button.style.left = rect.left + "px";
-        button.style.top = rect.top + window.scrollY + "px";
     }
 });
 </script>
@@ -97,13 +91,13 @@ onMount(() => {
 
     .container {
         position: absolute;
-        width: 300%;
-        height: 300%;
+        width: 200%;
+        height: 200%;
         top: 0;
         left: 0;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px,transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-        background-size: 2rem 2rem;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.300) 1px,transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.300) 1px, transparent 1px);
+        background-size: 1.5rem 1.5rem;
         background-color: #fcfbf6;
         z-index: 1;
     }
@@ -113,7 +107,7 @@ onMount(() => {
     }
     .card {
         width: 11.9rem;
-        height: 13.9rem;
+        height: 14.9rem;
         background-color: #fcfbf6;
         position: absolute;
         cursor: pointer;

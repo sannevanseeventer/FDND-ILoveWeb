@@ -7,8 +7,8 @@ export async function load({ params }) {
 
     // Define your GraphQL query with a filter for the specific slug
     const query = gql`
-    query BlogPosts {
-        blogPosts {
+    query BlogPostsBySlug($slug: String!) {
+        blogPosts(where: { slug: $slug }) {
             id
             title
             left
