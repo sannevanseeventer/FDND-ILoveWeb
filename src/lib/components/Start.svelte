@@ -33,7 +33,7 @@
         position: absolute;
         z-index: 1001;
         max-width: 15rem;
-        left: 4.7vh;
+        left: 4.9vh;
         top: 21.1vh;
         text-align: center;
     }
