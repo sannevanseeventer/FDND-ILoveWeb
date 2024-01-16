@@ -5,11 +5,13 @@
     <style>
 
     #title {
-    position: fixed;
-    top: 3rem;
-    left: 2rem;
+    position: absolute;
+    top: 58rem;
+    left: 10rem;
     font-size: 5rem;
-    font-weight: bold;
+    background-color: #F0EFEB;
+    border: 1px solid black;
+    width: 5rem;
     font-family: 'Bebas Neue', sans-serif;
     z-index: 1001;
 }

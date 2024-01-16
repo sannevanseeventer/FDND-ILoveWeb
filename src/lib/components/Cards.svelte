@@ -96,8 +96,8 @@ onMount(() => {
 
     .container {
         position: absolute;
-        width: 200%;
-        height: 200%;
+        width: 300%;
+        height: 300%;
         top: 0;
         left: 0;
         background-image: linear-gradient(rgba(0, 0, 0, 0.300) 1px,transparent 1px),

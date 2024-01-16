@@ -25,18 +25,27 @@ button {
   position: fixed;
   top: 86.5vh;
   left: 36.1vh;
+  /* right: 5vh; */
   z-index: 999;
   text-decoration: none;
   box-shadow: .5rem 1rem 0rem black;
   cursor: pointer;
-  transition: .2s;
+  transition: .1s;
   border: 1px solid darkgrey;
 }
+
 
 button:hover {
   margin-top: 1rem;
   margin-left: .5rem;
   box-shadow: none;
 }
+
+/* @media (min-width: 820px) {
+button{
+    top: 5vh;
+  left: 60vh;
+}
+} */
 
 </style>
