@@ -66,10 +66,10 @@
 
 @keyframes cursorAnimation {
   0%, 100% {
-    background-image: url('hand-open.png');
+    background-image: url('./hand-open.png');
   }
   50% {
-    background-image: url('hand-dicht.png');
+    background-image: url('./hand-dicht.png');
   }
 }
 
