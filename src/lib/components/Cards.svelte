@@ -63,6 +63,7 @@ onMount(() => {
     window.onload = function() {
     // Verplaats het venster naar een standaardpositie
     window.moveTo(0, 0);
+
 };
 });
 </script>
@@ -70,17 +71,19 @@ onMount(() => {
 <section>
     <div class="container">
 
+        <ul>
         <!-- Speakers We love Web -->
-        {#each data.blogPosts as post}
-            <a href="/{post.slug}">
-                <div class="card" style="top: {post.top}rem; left: {post.left}rem">
-                    <div class="card-container">
-                        <img src="{post.image.url}" alt="illustratie van Yolijn" />
-                        <h2>{post.title}</h2>
-                    </div>
-                </div>
-            </a>
-        {/each}
+            {#each data.blogPosts as post}
+                <a href="/{post.slug}">
+                    <li class="card" style="top: {post.top}rem; left: {post.left}rem">
+                        <div class="card-container">
+                            <img src="{post.image.url}" alt="illustratie van Yolijn" />
+                            <h2>{post.title}</h2>
+                        </div>
+                    </li>
+                </a>
+            {/each}
+        </ul>
 
     </div>
 </section>
@@ -91,7 +94,10 @@ onMount(() => {
         height: 100vh;
         width: 100vw;
         overflow: hidden;
-        
+    }
+
+    ul {
+        list-style: none;
     }
 
     .container {
@@ -107,15 +113,20 @@ onMount(() => {
         z-index: 1;
     }
 
-    .container:active {
-        cursor: grabbing; /* Verandert de cursor naar grabbing tijdens het slepen */
-    }
+    /* .container:active {
+        cursor: grabbing;
+    } */
+    
     .card {
         width: 11.9rem;
         height: 14.9rem;
         background-color: #fcfbf6;
         position: absolute;
-        cursor: pointer;
+        /* cursor: pointer; */
+    }
+
+    .card:nth-child(2) {
+        background-color: aquamarine !important;
     }
 
     .card-container {
