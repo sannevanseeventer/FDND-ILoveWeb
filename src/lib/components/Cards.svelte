@@ -69,7 +69,7 @@ onMount(() => {
 </script>
 
 <section>
-    <div class="container">
+    <div class="container">       
         <!-- Speakers We love Web -->
             {#each data.blogPosts as post}
                 <a href="/{post.slug}">
@@ -86,6 +86,7 @@ onMount(() => {
 </section>
 
 
+
 <style>
     section {
         height: 100vh;
@@ -96,8 +97,8 @@ onMount(() => {
 
     .container {
         position: absolute;
-        width: 300%;
-        height: 300%;
+        width: 400%;
+        height: 400%;
         top: 0;
         left: 0;
         background-image: linear-gradient(rgba(0, 0, 0, 0.300) 1px,transparent 1px),
@@ -130,12 +131,13 @@ onMount(() => {
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        margin-top: 1rem;
+        margin-top: 1.6rem;
     }
 
     h2 {
         font-family: "Fira Code", sans-serif;
         font-size: 0.9rem;
+        margin-top: 1rem;
         margin-bottom: 1rem;
     }
 
