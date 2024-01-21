@@ -13,6 +13,11 @@ export async function load() {
         image {
             url
         }
+        subjectLeft
+        subjectTop
+        subjectImage {
+        url
+        }
     }
   }
   `;

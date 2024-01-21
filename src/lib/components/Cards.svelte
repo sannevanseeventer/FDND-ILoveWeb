@@ -70,21 +70,18 @@ onMount(() => {
 
 <section>
     <div class="container">
-
-        <ul>
         <!-- Speakers We love Web -->
             {#each data.blogPosts as post}
                 <a href="/{post.slug}">
-                    <li class="card" style="top: {post.top}rem; left: {post.left}rem">
+                    <div class="card" style="top: {post.top}rem; left: {post.left}rem">
                         <div class="card-container">
-                            <img src="{post.image.url}" alt="illustratie van Yolijn" />
+                            <img src="{post.image.url}" alt="" />
                             <h2>{post.title}</h2>
                         </div>
-                    </li>
+                        <img class="subject" src="{post.subjectImage.url}" alt="subject" style="transform: translateY({post.subjectTop}rem); margin-left: {post.subjectLeft}rem;">
+                    </div>
                 </a>
             {/each}
-        </ul>
-
     </div>
 </section>
 
@@ -96,9 +93,6 @@ onMount(() => {
         overflow: hidden;
     }
 
-    ul {
-        list-style: none;
-    }
 
     .container {
         position: absolute;
@@ -113,20 +107,22 @@ onMount(() => {
         z-index: 1;
     }
 
-    /* .container:active {
+    .container:active {
         cursor: grabbing;
-    } */
+    }
     
     .card {
         width: 11.9rem;
         height: 14.9rem;
         background-color: #fcfbf6;
         position: absolute;
-        /* cursor: pointer; */
+        cursor: pointer;
     }
 
-    .card:nth-child(2) {
-        background-color: aquamarine !important;
+    .subject {
+        position: relative;
+        width: 10.5rem;
+        height: auto;
     }
 
     .card-container {

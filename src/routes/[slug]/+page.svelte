@@ -2,9 +2,6 @@
     export let data;
   </script>
   
-  <svelte:head>
-    <title>{data.blogPost.title}</title>
-  </svelte:head>
   
   <main>
     <section>
