@@ -1,5 +1,6 @@
     <a href="/">Blogs</a>
     <a href="/" class="second-title">Sketches</a>
+    <a href="/" class="third-title">Latest news</a>
 
 <style>
 
@@ -35,6 +36,12 @@ a {
     padding: .6rem 1.4rem;
     top: 8.2rem;
     left: 40.3rem;
+  }
+
+  .third-title{
+    padding: .6rem 1.45rem;
+    top: 65.2rem;
+    left: 55.1rem;
   }
 
 </style>

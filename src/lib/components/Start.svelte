@@ -2,53 +2,52 @@
 
 </script>
 
-<div class="start-container">
-
-<div class="shadow-container"></div>
-<h1>Verken mijn notities door te slepen</h1>
-
-</div>
+<section>
+<a href="/"><h1>Verken mijn notities door te slepen</h1></a>
 
 <div class="cursor-animation"></div>
 
+</section>
 
 
 
 <style>
 
-.start-container{
-    width: 100vw;
-    height: auto;
+    section{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 0.8rem 1.45rem;
+    background-color: #fcfbf6;
+    position: relative;
+    z-index: 999;
+    border: 1px solid black;
+    top: 24.6vh;
+    left: 3rem;
+    max-width: 15rem;;
+  }
+  
+  h1::before {
+    content: '';
     position: absolute;
-    margin-top: 2.3rem;
-}
+    z-index: -2;
+    right: -5px;
+    bottom: -5px;
+    width: 100%;
+    height: 100%;
+    background: #fcfbf6;
+    border: 1px solid black;
+  }
 
-    h1{
-        font-size: 2rem;
-        color: black;
-        font-family: 'Bebas Neue', sans-serif;
-        background-color: #fcfbf6;
-        border: 1px solid black;
-        padding: .55rem 2.2rem;
-        position: absolute;
-        z-index: 1001;
-        max-width: 15rem;
-        left: 4.9vh;
-        top: 21.1vh;
-        text-align: center;
-    }
-
-    .shadow-container{
-        padding: .55rem 2.2rem;
-        position: absolute;
-        z-index: 1001;
-        left: 3.7vh;
-        top: 23.3vh;
-        width: 15rem;
-        height: 4.8rem;
-        background-color: #fcfbf6;
-        border: 1px solid black;
-    }
+  a{
+    text-decoration: none;
+  }
 
  
 .cursor-animation {

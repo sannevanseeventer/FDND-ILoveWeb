@@ -14,7 +14,7 @@ img{
     position: absolute;
     width: 10rem;
     height: auto;
-    z-index: 1001;
+    z-index: 998;
     top: 12.7rem;
     left: 43.3rem;
 }

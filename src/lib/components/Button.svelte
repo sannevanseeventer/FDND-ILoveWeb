@@ -1,6 +1,6 @@
 <section>
 <nav>
-<button>Menu</button>
+<button>menu</button>
 </nav>
 </section>
 
