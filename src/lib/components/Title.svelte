@@ -33,7 +33,7 @@ a {
 
   .second-title{
     padding: .6rem 1.4rem;
-    top: 30.7rem;
+    top: 8.2rem;
     left: 40.3rem;
   }
 
