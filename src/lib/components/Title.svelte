@@ -16,7 +16,7 @@ a {
     z-index: 999;
     text-decoration: none;
     border: 1px solid black;
-    top: 60.7rem;
+    top: 15.7rem;
     left: 16.5rem;
   }
   
@@ -34,7 +34,7 @@ a {
 
   .second-title{
     padding: .6rem 1.4rem;
-    top: 8.2rem;
+    top: -33.8rem;
     left: 40.3rem;
   }
 

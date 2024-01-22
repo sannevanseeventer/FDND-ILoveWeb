@@ -1,6 +1,9 @@
 <script>
     export let data;
 import { onMount } from "svelte";
+    import Start from "./Start.svelte";
+    import Sketches from "./Sketches.svelte";
+    import Title from "./Title.svelte";
 
 onMount(() => {
     const container = document.querySelector(".container");
@@ -69,7 +72,14 @@ onMount(() => {
 </script>
 
 <section>
+
+
+
     <div class="container">       
+        <Start />
+        <Title />
+        <Sketches />
+
         <!-- Speakers We love Web -->
             {#each data.blogPosts as post}
                 <a href="/{post.slug}">

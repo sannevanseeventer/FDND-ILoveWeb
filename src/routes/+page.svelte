@@ -9,8 +9,7 @@ export let data;
 
 </script>
 
-<Sketches />
-<Title />
-<Start />
+
+<!-- <Start /> -->
 <Cards {data}/>
-<Button />
+<!-- <Button /> -->
